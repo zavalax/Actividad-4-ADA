@@ -1,0 +1,35 @@
+class Main {
+    public static void main(String[] args) {
+        int[] arr = {5, 4, 3, 2, 1};
+        bubbleSort(arr);
+
+        System.out.println("Arreglo ordenado: ");
+        for (int num : arr) {
+            System.out.print(num + " ");
+        }
+    }
+    
+    static void bubbleSort(int[] arr) {
+        int cont=0,intercambios=0,comparaciones=0;
+        int n = arr.length;//longitud d array
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = 0;  j < n - i - 1; j++) {
+                comparaciones++;
+                if (arr[j] > arr[j + 1]) {//comparacion e intercambio de los elementos
+                    intercambios++;
+                    int temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                    cont ++;
+                }
+            }
+            if(cont == 0){
+                break;
+            }else{
+                cont=0;
+            }
+        }
+        System.out.println("numero de intercambios: "+intercambios);
+        System.out.println("numero de comparaciones: "+comparaciones);
+    }
+}
